@@ -16,7 +16,19 @@ RecordStore.prototype = {
   },
   listInventory: function() {
     return this.inventory;
+  },
+  sell: function(record) {
+    this.remove(record);
+    this.balance += record.price;
+  },
+  reportFinances: function() {
+    var total = 0;
+    for (i=0; i<this.inventory.length; i++) {
+     total += this.inventory[i].price
+    }
+    return total += this.balance;
   }
+
 
 }
 

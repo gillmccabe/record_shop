@@ -56,5 +56,28 @@ describe( "RecordStore", function() {
     assert.deepEqual( [ record1, record2 ], recordStore1.listInventory() )
   })
 
+  it( "balance should change when you sell a record", function() {
+    recordStore1.add(record1);
+    recordStore1.add(record2);
+    recordStore1.add(record3);
+    recordStore1.sell(record1);
+    assert.equal( 108.99, recordStore1.balance )
+  })
+
+  it( "inventory should change when you sell a record", function() {
+    recordStore1.add(record1);
+    recordStore1.add(record2);
+    recordStore1.add(record3);
+    recordStore1.sell(record1);
+    assert.equal( 2, recordStore1.inventory.length )
+  })
+
+  it( "should be able to report on finances", function() {
+    recordStore1.add(record1);
+    recordStore1.add(record2);
+    recordStore1.add(record3);
+    assert.equal( 132.97 , recordStore1.reportFinances() )
+  })
+
 
 })
