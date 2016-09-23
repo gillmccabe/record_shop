@@ -3,7 +3,7 @@ var Record = require( "../Record" );
 var RecordStore = require( "../RecordStore" );
 var RecordCollector = require( "../RecordCollector" );
 
-describe( "RecordStore", function() {
+describe( "RecordCollector", function() {
 
   var record1;
   var record2;
@@ -34,14 +34,14 @@ describe( "RecordStore", function() {
     assert.deepEqual( [record1, record2], recordCollector1.records )
   })
 
-  it( "collector should be able to buy records and add them to collection", function() {
+  it( "should be able to buy records", function() {
     recordStore1.add(record3);
     recordStore1.add(record4);
     recordCollector1.buy(recordStore1, record3);
     assert.equal( 3, recordCollector1.records.length);
   })
 
-  it( "collector budget should go down when they buy a record", function() {
+  it( "budget should go down when they buy a record", function() {
     recordStore1.add(record3);
     recordStore1.add(record4);
     recordCollector1.buy(recordStore1, record3);
@@ -60,6 +60,11 @@ describe( "RecordStore", function() {
     recordStore1.add(record4);
     recordCollector1.buy(recordStore1, record3);
     assert.equal( 1, recordStore1.inventory.length )
+  })
+
+  it( "should be able to sell records", function() {
+    recordCollector1.sell(recordStore1, record1);
+    assert.equal( 1, recordCollector1.records.length);
   })
 
 
