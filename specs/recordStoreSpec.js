@@ -42,4 +42,19 @@ describe( "RecordStore", function() {
     assert.equal( 2, recordStore1.inventory.length )
   })
 
+  it( "should be able to remove record from inventory", function() {
+    recordStore1.add(record1);
+    recordStore1.add(record2);
+    recordStore1.remove(record2);
+    assert.equal( 1, recordStore1.inventory.length )
+  })
+
+  it( "should be able to list inventory", function() {
+    recordStore1.add(record1);
+    recordStore1.add(record2);
+    recordStore1.listInventory();
+    assert.deepEqual( [ record1, record2 ], recordStore1.listInventory() )
+  })
+
+
 })
