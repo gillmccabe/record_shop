@@ -16,7 +16,7 @@ describe( "RecordStore", function() {
    record2 = new Record( "Paul Simon", "Graceland", 12.99 );
    record3 = new Record( "Tom Waits", "Rain Dogs", 10.99 );
    record4 = new Record( "Beastie Boys", "Paul's Boutique", 10.99 );
-   record5 = new Record( "Beastie Boys", "Licensed to Ill")
+   record5 = new Record( "Beastie Boys", "Licensed to Ill", 11.99 );
    recordStore1 = new RecordStore( "Missing Records", "Glasgow" );
   })
 
