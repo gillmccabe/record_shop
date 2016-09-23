@@ -15,7 +15,7 @@ RecordCollector.prototype = {
   },
   buy: function(recordStore, record) {
     recordStore.remove(record);
-    this.records.push(record);
+    this.add(record);
     recordStore.balance += record.price;
     this.budget -= record.price;
   },
