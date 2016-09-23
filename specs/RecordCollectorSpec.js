@@ -67,6 +67,21 @@ describe( "RecordCollector", function() {
     assert.equal( 1, recordCollector1.records.length);
   })
 
+  it( "budget should go up when they sell a record", function() {
+    recordCollector1.sell(recordStore1, record1);
+    assert.equal( 48, recordCollector1.budget )
+  })
+
+  it( "store budget should go down when collector sells a record", function() {
+    recordCollector1.sell(recordStore1, record1);
+    assert.equal( 92, recordStore1.balance )
+  })
+
+  it( "store inventory should go up when collector sells a record", function() {
+    recordCollector1.sell(recordStore1, record1);
+    assert.equal( 1, recordStore1.inventory.length )
+  })
+
 
 
 })
