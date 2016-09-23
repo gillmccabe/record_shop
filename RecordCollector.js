@@ -1,12 +1,13 @@
-var RecordCollector = function( name, credit ) {
+var RecordCollector = function( name, budget, record ) {
   this.name = name;
-  this.credit = credit;
+  this.budget = budget;
+  this.record = record
 }
 
 RecordCollector.prototype = {
   buy: function(recordStore, record) {
     recordStore.remove(record);
-    this.credit -= record.price;
+    this.budget -= record.price;
   }
 
 }

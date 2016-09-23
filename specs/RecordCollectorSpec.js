@@ -26,5 +26,9 @@ describe( "RecordStore", function() {
     assert.equal( "Kiyo", recordCollector1.name )
   })
 
+  it( "should have a budget", function() {
+    assert.equal( 40, recordCollector1. budget )
+  })
+
 })
 
