@@ -16,6 +16,7 @@ describe( "RecordStore", function() {
    record2 = new Record( "Paul Simon", "Graceland", 12.99 );
    record3 = new Record( "Tom Waits", "Rain Dogs", 10.99 );
    record4 = new Record( "Beastie Boys", "Paul's Boutique", 10.99 );
+   record5 = new Record( "Beastie Boys", "Licensed to Ill")
    recordStore1 = new RecordStore( "Missing Records", "Glasgow" );
   })
 
@@ -54,6 +55,21 @@ describe( "RecordStore", function() {
     recordStore1.add(record2);
     recordStore1.listInventory();
     assert.deepEqual( [ record1, record2 ], recordStore1.listInventory() )
+  })
+
+  it( "should be able to find record by title", function() {
+    recordStore1.add(record1);
+    recordStore1.add(record2);
+    assert.equal( record2, recordStore1.findByTitle("Graceland"))
+  })
+
+  it( "should be able to find records by artist", function() {
+    recordStore1.add(record1);
+    recordStore1.add(record2);
+    recordStore1.add(record3);
+    recordStore1.add(record4);
+    recordStore1.add(record5);
+    assert.deepEqual([ record4, record5 ], recordStore1.findByArtist("Beastie Boys"))
   })
 
   it( "balance should change when you sell a record", function() {

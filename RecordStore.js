@@ -17,6 +17,12 @@ RecordStore.prototype = {
   listInventory: function() {
     return this.inventory;
   },
+  findByTitle: function(title) {
+    return _.find(this.inventory, ["title", title] );
+  },
+  findByArtist: function(artist) {
+    return _.filter(this.inventory, ["artist", artist] );
+  },
   sell: function(record) {
     this.remove(record);
     this.balance += record.price;
