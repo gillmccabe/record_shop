@@ -18,5 +18,4 @@ describe( "Record", function() {
     assert.equal( 8.99, record1.price )
   })
 
-
 })

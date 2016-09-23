@@ -23,4 +23,23 @@ describe( "RecordStore", function() {
     assert.equal( "Missing Records", recordStore1.name )
   })
 
+  it( "should have a city", function() {
+    assert.equal( "Glasgow", recordStore1.city )
+  })
+
+  it( "inventory should start empty", function() {
+    assert.equal( 0, recordStore1.inventory.length )
+  })
+
+  it( "should be able to add record to inventory", function() {
+    recordStore1.add(record1);
+    assert.equal( 1, recordStore1.inventory.length )
+  })
+
+  it( "should be able to add multiple records to inventory", function() {
+    recordStore1.add(record1);
+    recordStore1.add(record2);
+    assert.equal( 2, recordStore1.inventory.length )
+  })
+
 })
